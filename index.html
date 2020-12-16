@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Posts</title>
+</head>
+
+<body>
+
+    <!-- pass in event because we're inside of form and the goal is to prevent the default action of the page refreshing -->
+    <!-- you will get a 404 so go to postcontroller -->
+    <!-- followup: in html we submitted the form/ took in information in input tag name="body" which will be the body of the post / onsubmit gets sent over to the createPost and passes in the event of the form submission -->
+    <!-- PostController: we prevent the default action of page reloading with event.preventDefault().. then grab data from the form let formData = ...   -->
+    <!-- create that object as a plain JS object, let rawPost=...   -->
+    <!-- since it's not the job of the Controller to create that info in the state so kick it into PostService's createPost and pass in rawData -->
+    <!-- createPost needs to take in the object and create a post from it -->
+    <form onsubmit="app.postController.createPost(event)">
+        <input type="text" name="body" placeholder="Your Post Here..." required>
+
+        <button type="submit">Post</button>
+    </form>
+    <div id="posts"></div>
+
+
+
+
+
+    <script src="app/main.js" type="module"></script>
+</body>
+
+</html>
